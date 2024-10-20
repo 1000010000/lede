@@ -851,6 +851,18 @@ define Device/ht-jsh_0211
 endef
 TARGET_DEVICES += ht-jsh_0211
 
+define Device/huasifei_mt7621dtu
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 32448k
+  DEVICE_VENDOR := Huasifei
+  DEVICE_MODEL := MT7621 DTU
+  DEVICE_PACKAGES := kmod-ata-ahci kmod-mt7603 kmod-mt76x2 kmod-sdhci-mt7620 \
+	kmod-usb3 kmod-usb-net-cdc-mbim kmod-usb-net-qmi-wwan \
+	kmod-usb-serial-option luci-proto-qmi sendat
+endef
+TARGET_DEVICES += huasifei_mt7621dtu
+
 define Device/huasifei_ws1208v2
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)
@@ -1029,6 +1041,15 @@ define Device/jcg_y2
   DEVICE_PACKAGES := kmod-mt7615d_dbdc kmod-usb3 -luci-newapi -wpad-openssl
 endef
 TARGET_DEVICES += jcg_y2
+
+define Device/jdcloud_re-cp-02
+  $(Device/dsa-migration)
+  IMAGE_SIZE := 16000k
+  DEVICE_VENDOR := JD-Cloud
+  DEVICE_MODEL := RE-CP-02
+  DEVICE_PACKAGES := kmod-mt7915-firmware kmod-sdhci-mt7620
+endef
+TARGET_DEVICES += jdcloud_re-cp-02
 
 define Device/jdcloud_re-sp-01b
   $(Device/dsa-migration)
